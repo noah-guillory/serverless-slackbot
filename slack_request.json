@@ -1,0 +1,21 @@
+{
+    "token": "la0E2BSuS4MWERa19YRN95nB",
+    "team_id": "TLPV08H8A",
+    "api_app_id": "ALQ00HDUK",
+    "event": {
+        "client_msg_id": "7240f2c8-84cd-46d3-8754-1335796f448f",
+        "type": "app_mention",
+        "text": "<@UM1BG4HAL> hi",
+        "user": "ULPV08HGA",
+        "ts": "1564863929.001900",
+        "team": "TLPV08H8A",
+        "channel": "CM0TB7RTN",
+        "event_ts": "1564863929.001900"
+    },
+    "type": "event_callback",
+    "event_id": "EvLQ0H5WGK",
+    "event_time": 1564863929,
+    "authed_users": [
+        "UM1BG4HAL"
+    ]
+}

@@ -1,0 +1,47 @@
+service: slack-bot-service
+
+provider:
+  name: google
+  stage: dev
+  runtime: python37
+  region: us-central1
+  project: slackr
+  # The GCF credentials can be a little tricky to set up. Luckily we've documented this for you here:
+  # https://serverless.com/framework/docs/providers/google/guide/credentials/
+  #
+  # the path to the credentials file needs to be absolute
+  credentials: ~/.gcloud/keyfile.json
+  environment:
+    BOT_TOKEN: "xoxb-703986289282-715390153360-UjNtrrnl0QkqX30sHWZFhlAR"
+    GIPHY_API_KEY: "zysbTgTtPJtBimdodJonKK0czZT7xANU"
+
+plugins:
+  - serverless-google-cloudfunctions
+package:
+  exclude:
+    - node_modules/**
+    - .gitignore
+    - .git/**
+
+functions:
+  slack-bot:
+    handler: slack_bot
+    events:
+      - http: path
+  # NOTE: the following uses an "event" event (pubSub event in this case).
+  # Please create the corresponding resources in the Google Cloud
+  # before deploying this service through Serverless
+  #second:
+  #  handler: event
+  #  events:
+  #    - event:
+  #        eventType: providers/cloud.pubsub/eventTypes/topic.publish
+  #        resource: projects/*/topics/my-topic
+# you can define resources, templates etc. the same way you would in a
+# Google Cloud deployment configuration
+#resources:
+#  resources:
+#    - type: storage.v1.bucket
+#      name: my-serverless-service-bucket
+#  imports:
+#    - path: my_template.jinja
